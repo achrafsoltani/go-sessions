@@ -1,0 +1,8 @@
+sequenceDiagram
+    participant HTTPClient
+    participant HTTPServer
+    participant SessionStore
+    HTTPClient->>HTTPServer: Cookie with Session ID
+    HTTPServer->>SessionStore: Verify Session ID
+    HTTPServer->>HTTPServer: Verify Session Validity
+    HTTPServer->>HTTPClient: Verified, Send Content

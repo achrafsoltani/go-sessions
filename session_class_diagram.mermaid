@@ -1,0 +1,32 @@
+---
+title: Go Sessions
+---
+classDiagram
+    Session -- SessionManager
+    SessionManager *-- CookieManager
+    note for Session "The object containing Session data"
+    note for SessionStore "Redis\nPostgreSQL\n..."
+    note for SessionManager "Generates Session Objects\nDeals with Cookies"
+    note for CookieManager "Native Cookie Handling"
+    SessionStore <|-- SessionManager
+    SessionStore : +int age
+    SessionStore : +String gender
+    SessionStore: +isMammal()
+    SessionStore: +mate()
+    class Session{
+        +map[string]string Values
+        +persist()
+    }
+    class SessionManager{
+        -CookieManager cookieManager
+        -generateSession()
+        -Encrypt()
+        -Invalidate()
+    }
+    class CookieManager{
+        +read()
+        +write()
+        +encode()
+        +sign()
+        +encrypt()
+    }

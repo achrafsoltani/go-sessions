@@ -1,0 +1,9 @@
+sequenceDiagram
+    participant HTTPClient
+    participant HTTPServer
+    participant Database
+    participant SessionStore
+    HTTPClient->>HTTPServer: Credentials (login/password)
+    HTTPServer->>Database: Check credentials
+    HTTPServer->>SessionStore: Create & Store Session ID
+    HTTPServer->>HTTPClient: Return Session ID in Cookie
