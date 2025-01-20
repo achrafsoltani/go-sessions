@@ -9,8 +9,10 @@ classDiagram
     note for SessionManager "Generates Session Objects\nDeals with Cookies"
     note for CookieManager "Native Cookie Handling"
     SessionStore <|-- SessionManager
-    SessionStore : +int age
-    SessionStore : +String gender
+    SessionStore : +String host
+    SessionStore : +String user
+    SessionStore : +String password
+    SessionStore : +int port
     SessionStore: +isMammal()
     SessionStore: +mate()
     class Session{
